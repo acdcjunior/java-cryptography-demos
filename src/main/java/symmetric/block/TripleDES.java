@@ -36,6 +36,8 @@ public class TripleDES {
 
     private void initCipher(int opmode) throws InvalidKeyException, InvalidAlgorithmParameterException {
         if (transformation.contains("CBC")) {
+            // http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_Block_Chaining_.28CBC.29
+            // CBC requires an INITIALIZATION VECTOR, so here it goes
             cipher.init(opmode, key, new IvParameterSpec(new byte[8]));
         } else {
             cipher.init(opmode, key);
@@ -98,7 +100,8 @@ public class TripleDES {
         transform("DESede/CBC/NoPadding", "98689789", "98689789", "12345678", "myText64"); // only k3 should have effect
 
         System.out.println();
-        System.out.println("ECB and CBC should be equal on the first block. From the second on, they should differ, as CBC also XORs them.");
+        System.out.println("ECB and CBC should be equal on the first block (as the CBC initialization vector used is 00000000 - see initCipher())." +
+                " From the second on, they should differ, as CBC will do XORing while EBC won't.");
         transform("DESede/ECB/NoPadding", "11111111", "22222222", "33333333", "myText64");
         transform("DESede/CBC/NoPadding", "11111111", "22222222", "33333333", "myText64");
         transform("DESede/ECB/NoPadding", "11111111", "22222222", "33333333", "myText64myText64");
