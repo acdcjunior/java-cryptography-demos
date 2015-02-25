@@ -71,6 +71,7 @@ public class TripleDES {
 
     public static void main(String args[]) throws Exception {
         /*
+        Example of available transformations (Cipher + Mode of Operation + Padding):
         AES/CBC/NoPadding (128)
         AES/CBC/PKCS5Padding (128)
         AES/ECB/NoPadding (128)
@@ -88,6 +89,10 @@ public class TripleDES {
         RSA/ECB/PKCS1Padding (1024, 2048)
         RSA/ECB/OAEPWithSHA-1AndMGF1Padding (1024, 2048)
         RSA/ECB/OAEPWithSHA-256AndMGF1Padding (1024, 2048)
+        
+        
+        ALL AVAILABLE Ciphers and modes and everything else:
+        http://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#Cipher
          */
         /*
          I researched and didnt find out exactly, but I believe the 3DES is called 'DESede' because it is equivalent to
