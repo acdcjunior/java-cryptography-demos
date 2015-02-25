@@ -75,6 +75,7 @@ public class TripleDES {
         AES/CBC/PKCS5Padding (128)
         AES/ECB/NoPadding (128)
         AES/ECB/PKCS5Padding (128)
+        
         DES/CBC/NoPadding (56)
         DES/CBC/PKCS5Padding (56)
         DES/ECB/NoPadding (56)
@@ -83,9 +84,14 @@ public class TripleDES {
         DESede/CBC/PKCS5Padding (168)
         DESede/ECB/NoPadding (168)
         DESede/ECB/PKCS5Padding (168)
+        
         RSA/ECB/PKCS1Padding (1024, 2048)
         RSA/ECB/OAEPWithSHA-1AndMGF1Padding (1024, 2048)
         RSA/ECB/OAEPWithSHA-256AndMGF1Padding (1024, 2048)
+         */
+        /*
+         I researched and didnt find out exactly, but I believe the 3DES is called 'DESede' because it is equivalent to
+         applying the DES E, DES D and DES E - where DES E is DES Encryption and DES D is DES Decryption.
          */
         transform("DESede/CBC/NoPadding",    "12345678", "55665544", "55665544", "12345678");
         transform("DESede/CBC/PKCS5Padding", "12345678", "55665544", "55665544", "12345678");
